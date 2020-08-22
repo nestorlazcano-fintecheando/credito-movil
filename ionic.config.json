@@ -1,0 +1,7 @@
+{
+  "name": "credito-movil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
