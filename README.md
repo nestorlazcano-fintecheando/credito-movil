@@ -4,11 +4,11 @@
 
 Clone the project:
 
-    $ git clone https://github.com/InfotecMexico/banca-por-internet.git
+    $ git clone https://github.com/jmaldama8110/credito-movil.git
 
 Install dependencies:
 
-    $ cd banca-por-internet
+    $ cd credito-movil
     
     $ npm install
 
