@@ -1,0 +1,131 @@
+<app-header titulo="REGISTRO"></app-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form *ngIf="step1" [formGroup]="form_register1">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nombre(s)</ion-label>
+            <ion-input formControlName="nombre" type="text" inputmode="text" required></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.nombre">
+            <ng-container *ngIf="nombre.hasError(error.type) && (nombre.dirty || nombre.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-label position="floating">Apellido Paterno</ion-label>
+            <ion-input formControlName="apellidoP" type="text" inputmode="text" required></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.apellidoP">
+            <ng-container *ngIf="apellidoP.hasError(error.type) && (apellidoP.dirty || apellidoP.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-label position="floating">Apellido Materno</ion-label>
+            <ion-input formControlName="apellidoM" type="text" inputmode="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input formControlName="correo" type="email" inputmode="email" required></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.correo">
+            <ng-container *ngIf="correo.hasError(error.type) && (correo.dirty || correo.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-label position="floating">Número del Cliente</ion-label>
+            <ion-input formControlName="nCliente" type="number" inputmode="numeric" required></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.nCliente">
+            <ng-container *ngIf="nCliente.hasError(error.type) && (nCliente.dirty || nCliente.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" [type]="hide ? 'password' : 'text'" inputmode="text"></ion-input>
+            <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye-off' : 'eye'" slot="end" ></ion-icon>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.password">
+            <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-label position="floating">Confirmar contraseña</ion-label>
+            <ion-input formControlName="password2" [type]="hide ? 'password' : 'text'" inputmode="text"></ion-input>
+            <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye-off' : 'eye'" slot="end" ></ion-icon>
+          </ion-item>
+          <div>
+            <ng-container *ngIf="(password.value != password2.value) && (password.value != null)">
+              <small class="error-message">Las contraseñas no coinciden</small>
+            </ng-container>
+          </div>
+
+        </ion-list>
+
+        <ion-button size="small" [disabled]="!form_register1.valid" (click)="step2 = true; step1 = false" color="success" expand="block">Siguente</ion-button>
+        <ion-button size="small" color="dark" expand="block">Cancelar</ion-button>
+      </form>
+
+      <form *ngIf="step2" [formGroup]="form_register2">
+        <ion-list>
+          <ion-grid>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-avatar style="height: 100px;width: 100px; background-color: white;">
+                    <img id="img-selfie" src="../../../assets/img/Asset 3.png">
+                  </ion-avatar>
+                  <ion-fab-button (click)="tomarFoto()" size="small" class="btn-selfie">
+                    <ion-icon name="camera"></ion-icon>
+                  </ion-fab-button>
+                </ion-item>
+              </ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label>Tómate una selfie</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+            </ion-grid>
+          <ion-item>
+            <ion-label position="floating">Número de Celular</ion-label>
+            <ion-input formControlName="celular" type="number" inputmode="numeric" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">CURP</ion-label>
+            <ion-input formControlName="curp" autocapitalize="characters" type="text" inputmode="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Fecha de nacimiento</ion-label>
+            <ion-datetime formControlName="dateBirth" displayFormat="MM/DD/YYYY" required></ion-datetime>
+            <ion-icon class="icono-centrado" name="calendar" slot="end" ></ion-icon>
+          </ion-item>
+        </ion-list>
+        <ion-item>
+          <ion-label>Acepto <a href="#" style="text-decoration:none;">terminos y condiciones</a></ion-label>
+          <ion-checkbox (click)="aceptarTerminos = !aceptarTerminos" slot="end"></ion-checkbox>
+        </ion-item>
+        <br>
+        <ion-button [disabled]="!aceptarTerminos" (click)="createCount()" size="small" color="success" expand="block">Registrarse</ion-button>
+        <ion-button (click)="step1 = true; step2 = false" size="small" color="dark" expand="block">Regresar</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

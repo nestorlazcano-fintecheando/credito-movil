@@ -9,11 +9,21 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { ComponentsModule } from '@components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CoreModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    CoreModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ComponentsModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
