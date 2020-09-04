@@ -1,0 +1,8 @@
+<div *ngIf="form.dirty || form.touched">
+  <ng-container *ngIf="form.errors && form.errors['required']"><small class="error-message">Este campo es requerido.</small></ng-container>
+  <ng-container *ngIf="form.errors && form.errors['notEquivalent']"><small class="error-message">Las contraseñas no coinciden.</small></ng-container>
+  <ng-container *ngIf="form.errors && form.errors['pattern'] && fieldName=='email'"><small class="error-message">Ingrese un correo valido.</small></ng-container>
+  <ng-container *ngIf="form.errors && form.errors['pattern'] && fieldName=='nClient'"><small class="error-message">No. Cliente solo acepta números y 9 dígitos.</small></ng-container>
+  <ng-container *ngIf="form.errors && form.errors['pattern'] && fieldName=='password'"><small class="error-message">La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y sin espacios.</small></ng-container>
+  <ng-container *ngIf="form.errors && form.errors['pattern'] && fieldName=='phone'"><small class="error-message">Telefono solo acepta números y 10 dígitos.</small></ng-container>
+</div>

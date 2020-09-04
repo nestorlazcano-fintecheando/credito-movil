@@ -24,3 +24,19 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content.background{
+    --background: url('assets/img/bg-app.png') 0 0/100% 100% no-repeat;
+}
+
+ion-card.background{
+    --background: rgba(255,0,0,0);
+}
+
+ion-list.background{
+    --ion-item-background: rgba(255,0,0,0);
+}
+
+.btn-round{
+    --border-radius: 15px;
+}

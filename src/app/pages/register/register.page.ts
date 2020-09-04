@@ -8,37 +8,7 @@ import { Camera,CameraOptions } from '@ionic-native/camera/ngx';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  public errorMessages = {
-    nombre: [
-      { type: 'required', message: 'El nombre es requerido' }
-    ],
-    apellidoP: [
-      { type: 'required', message: 'El apellido es requerido' }
-    ],
-    correo: [
-      { type: 'required', message: 'El correo es requerido' },
-      { type: 'pattern', message: 'Ingrese un correo valido' }
-    ],
-    nCliente: [
-      { type: 'required', message: 'No. Cliente es requedido' },
-      { type: 'pattern', message: 'No. Cliente solo acepta numeros y 9 dígitos' }
-    ],
-    password: [
-      { type: 'required', message: 'La contraseña es requerida' },
-      { type: 'pattern', message: 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y sin espacios' }
-    ],
-    password2: [
-      { type: 'required', message: 'Confirmar contraseña es requerida' },
-    ],
-    zip: [
-      { type: 'required', message: 'Zip code is required' },
-      {
-        type: 'pattern',
-        message: 'Please enter a valid zip code'
-      }
-    ]
-  };
-  
+  confPassword = document.getElementById('confPassword');
   hide = true;
   step1 = true;
   step2 = false;
@@ -54,14 +24,14 @@ export class RegisterPage implements OnInit {
 
   formRegister(){
     this.form_register1 = this.form.group({
-      nombre: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       apellidoP: ['', [Validators.required]],
       apellidoM: [''],
-      correo: ['', [
+      email: ['', [
         Validators.required,
         Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
       ]],
-      nCliente: ['', [
+      nClient: ['', [
         Validators.required,
         Validators.pattern("^[0-9]{9}$")
       ]],
@@ -72,9 +42,9 @@ export class RegisterPage implements OnInit {
       password2: ['', [
         Validators.required
       ]]
-    });
+    }, {validator: this.checkPasswords});
     this.form_register2 = this.form.group({
-      celular: ['', [
+      phone: ['', [
         Validators.required,
         Validators.pattern("^[0-9]{10}$")
       ]],
@@ -108,8 +78,18 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  get nombre(){
-    return this.form_register1.get('nombre')
+  checkPasswords(group: FormGroup) {
+    let pass = group.get('password').value;
+    let confirmPass = group.get('password2').value;
+    if(pass === confirmPass){
+      return group.get('password2').setErrors(null)
+    }else{
+      return group.get('password2').setErrors({notEquivalent: true})
+    }    
+  }
+
+  get name(){
+    return this.form_register1.get('name')
   }
   get apellidoP(){
     return this.form_register1.get('apellidoP')
@@ -117,11 +97,11 @@ export class RegisterPage implements OnInit {
   get apellidoM(){
     return this.form_register1.get('apellidoM')
   }
-  get correo(){
-    return this.form_register1.get('correo')
+  get email(){
+    return this.form_register1.get('email')
   }
-  get nCliente(){
-    return this.form_register1.get('nCliente')
+  get nClient(){
+    return this.form_register1.get('nClient')
   }
   get password(){
     return this.form_register1.get('password')
@@ -129,8 +109,8 @@ export class RegisterPage implements OnInit {
   get password2(){
     return this.form_register1.get('password2')
   }
-  get celular(){
-    return this.form_register2.get('celular')
+  get phone(){
+    return this.form_register2.get('phone')
   }
   get curp(){
     return this.form_register2.get('curp')
