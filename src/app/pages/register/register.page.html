@@ -1,10 +1,9 @@
 <app-header titulo="REGISTRO"></app-header>
-
-<ion-content>
-  <ion-card>
+<ion-content class="background">
+  <ion-card class="background">
     <ion-card-content>
       <form *ngIf="step1" [formGroup]="form_register1">
-        <ion-list>
+        <ion-list class="background">
           <ion-item>
             <ion-label position="floating">Nombre(s)</ion-label>
             <ion-input formControlName="nombre" type="text" inputmode="text" required></ion-input>
@@ -123,7 +122,7 @@
           <ion-checkbox (click)="aceptarTerminos = !aceptarTerminos" slot="end"></ion-checkbox>
         </ion-item>
         <br>
-        <ion-button [disabled]="!aceptarTerminos" (click)="createCount()" size="small" color="success" expand="block">Registrarse</ion-button>
+        <ion-button [disabled]="(!aceptarTerminos) && (!form_register1.valid)" (click)="createCount()" size="small" color="success" expand="block">Registrarse</ion-button>
         <ion-button (click)="step1 = true; step2 = false" size="small" color="dark" expand="block">Regresar</ion-button>
       </form>
     </ion-card-content>
