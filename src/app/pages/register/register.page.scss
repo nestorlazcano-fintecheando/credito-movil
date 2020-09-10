@@ -1,7 +1,3 @@
-.icono-centrado{
-    padding-top: 14px;;
-}
-
 .btn-selfie{
     position:absolute;
     left: 60px;
@@ -9,10 +5,11 @@
 }
 
 #img-selfie{
-    width: 80px;
-    height: 80px;
-    margin-left: 12px;
-    margin-top: 10px;
+    width: 65px;
+    height: 75px;
+    margin-left: 19%;
+    margin-top: 15%;
+    --border-radius: 0px;
 }
 
 .positionAvata{

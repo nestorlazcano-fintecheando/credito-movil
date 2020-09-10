@@ -25,6 +25,27 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+/* Fonts */
+@import "assets/font/roboto/roboto.css";
+
+ion-label {
+    --ion-default-font: "roboto";
+    font-size: 16px !important;
+}
+
+ion-label.form {
+    padding-bottom: 0;
+}
+
+.input-item{
+    margin-top: 2%;
+    --ion-border-color: white;
+}
+
+ion-item.item-has-focus > ion-label{
+    color:  #B1C800  !important;
+}
+
 ion-content.background{
     --background: url('assets/img/bg-app.png') 0 0/100% 100% no-repeat;
 }
@@ -38,5 +59,36 @@ ion-list.background{
 }
 
 .btn-round{
-    --border-radius: 15px;
+    --border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.icono-centrado{
+    padding-top: 14px;;
+}
+
+.margin-card{
+    margin-right: 25px;
+    margin-left: 25px;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.center-label{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-success{
+    --background: #B1C800;
+    --color: white;
+}
+
+.btn-info{
+    --background: #00A8AE;
+    --color: white;
+}
+
+.text-blue{
+    --ion-color-contrast:#043C80 !important;
 }

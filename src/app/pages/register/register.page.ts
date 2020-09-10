@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Camera,CameraOptions } from '@ionic-native/camera/ngx';
+import { UserServiceService } from '@services/user/user-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,12 @@ export class RegisterPage implements OnInit {
   form_register1: FormGroup;
   form_register2: FormGroup;
 
-  constructor(private form: FormBuilder,private camera: Camera) { }
+  constructor(
+    private form: FormBuilder,
+    private camera: Camera,
+    private userService: UserServiceService,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
     this.formRegister();
@@ -37,7 +44,7 @@ export class RegisterPage implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,16}$")
+        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,16}$")
       ]],
       password2: ['', [
         Validators.required
@@ -50,13 +57,14 @@ export class RegisterPage implements OnInit {
       ]],
       curp: ['', [Validators.required]],
       dateBirth: ['', [Validators.required]],
-      img: ['', [Validators.required]]
+      img: ['']
     })
   }
 
   createCount(){
-    console.log(this.form_register1.value)
-    console.log(this.form_register2.value)
+    this.userService.register(this.form_register1.value,this.form_register2.value).subscribe(response => {
+      console.log(response)
+    })
   }
 
   tomarFoto(){

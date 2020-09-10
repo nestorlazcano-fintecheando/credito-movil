@@ -1,56 +1,56 @@
 <app-header titulo="REGISTRO"></app-header>
 <ion-content class="background">
-  <ion-card class="background">
+  <ion-card class="background margin-card" style="height: auto;">
     <ion-card-content>
       <form *ngIf="step1" [formGroup]="form_register1">
-        <ion-list class="background">
-          <ion-item>
+        <ion-list class="background" style="margin-bottom: 20%;">
+          <ion-item class="input-item">
             <ion-label position="floating">Nombre(s)</ion-label>
             <ion-input formControlName="name" type="text" inputmode="text" required></ion-input>
           </ion-item>
           <app-validation-errors [form]="form_register1.get('name')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Apellido Paterno</ion-label>
-            <ion-input formControlName="apellidoP" type="text" inputmode="text" required></ion-input>
+            <ion-input formControlName="apellidoP" type="text" inputmode="text" required></ion-input>  
           </ion-item>
           <app-validation-errors [form]="form_register1.get('apellidoP')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Apellido Materno</ion-label>
             <ion-input formControlName="apellidoM" type="text" inputmode="text"></ion-input>
           </ion-item>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Correo Electrónico</ion-label>
             <ion-input formControlName="email" type="email" inputmode="email" required></ion-input>
           </ion-item>
           <app-validation-errors fieldName="email" [form]="form_register1.get('email')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Número del Cliente</ion-label>
-            <ion-input formControlName="nClient" type="number" inputmode="numeric" required></ion-input>
+            <ion-input formControlName="nClient" type="text" inputmode="text" required></ion-input>
           </ion-item>
           <app-validation-errors fieldName="nClient" [form]="form_register1.get('nClient')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Contraseña</ion-label>
             <ion-input formControlName="password" [type]="hide ? 'password' : 'text'" inputmode="text"></ion-input>
-            <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye-off' : 'eye'" slot="end" ></ion-icon>
+            <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye' : 'eye-off'" slot="end" ></ion-icon>
           </ion-item>
           <app-validation-errors fieldName="password" [form]="form_register1.get('password')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Confirmar contraseña</ion-label>
             <ion-input id="confPassword" formControlName="password2" [type]="hide ? 'password' : 'text'" inputmode="text"></ion-input>
-            <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye-off' : 'eye'" slot="end" ></ion-icon>
+            <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye' : 'eye-off'" slot="end" ></ion-icon>
           </ion-item>
           <app-validation-errors [form]="form_register1.get('password2')"></app-validation-errors>
 
         </ion-list>
 
-        <ion-button class="btn-round" size="small" [disabled]="!form_register1.valid" (click)="step2 = true; step1 = false" color="success" expand="block">Siguente</ion-button>
-        <ion-button class="btn-round" size="small" color="dark" expand="block">Cancelar</ion-button>
+        <ion-button class="btn-round btn-success" [disabled]="!form_register1.valid" (click)="step2 = true; step1 = false" expand="block">Siguente</ion-button>
+        <ion-button class="btn-round" color="dark" routerLink="/login" expand="block">Cancelar</ion-button>
       </form>
 
       <form *ngIf="step2" [formGroup]="form_register2">
@@ -63,7 +63,7 @@
                   <ion-avatar class="positionAvata">
                     <img id="img-selfie" src="../../../assets/img/Asset 3.png">
                   </ion-avatar>
-                  <ion-fab-button (click)="tomarFoto()" size="small" class="btn-selfie">
+                  <ion-fab-button (click)="tomarFoto()" size="small" class="btn-selfie btn-info">
                     <ion-icon name="camera"></ion-icon>
                   </ion-fab-button>
                 </ion-item>
@@ -80,34 +80,34 @@
               <ion-col></ion-col>
             </ion-row>
           </ion-grid>
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Número de Celular</ion-label>
-            <ion-input formControlName="phone" type="number" inputmode="numeric" required></ion-input>
+            <ion-input formControlName="phone" type="text" inputmode="text" required></ion-input>
           </ion-item>
           <app-validation-errors fieldName="phone" [form]="form_register2.get('phone')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">CURP</ion-label>
             <ion-input formControlName="curp" autocapitalize="characters" type="text" inputmode="text" required></ion-input>
           </ion-item>
           <app-validation-errors [form]="form_register2.get('curp')"></app-validation-errors>
 
-          <ion-item>
+          <ion-item class="input-item">
             <ion-label position="floating">Fecha de nacimiento</ion-label>
-            <ion-datetime formControlName="dateBirth" displayFormat="MM/DD/YYYY" required></ion-datetime>
+            <ion-datetime formControlName="dateBirth" displayFormat="DD/MM/YYYY" required></ion-datetime>
             <ion-icon class="icono-centrado" name="calendar" slot="end" ></ion-icon>
           </ion-item>
           <app-validation-errors [form]="form_register2.get('dateBirth')"></app-validation-errors>
 
         </ion-list>
-        <ion-list class="background" style="border:none !important">
+        <ion-list class="background" style="border:none !important; margin-top: 20%;">
           <ion-item lines="none">
             <ion-label>Acepto <a href="#" style="text-decoration:none;color:white;font-weight: bold;">terminos y condiciones</a></ion-label>
             <ion-checkbox (click)="aceptarTerminos = !aceptarTerminos" slot="end"></ion-checkbox>
           </ion-item>
         </ion-list>
-        <ion-button class="btn-round" [disabled]="(!aceptarTerminos) && (!form_register1.valid)" (click)="createCount()" size="small" color="success" expand="block">Registrarse</ion-button>
-        <ion-button class="btn-round" (click)="step1 = true; step2 = false" size="small" color="dark" expand="block">Regresar</ion-button>
+        <ion-button class="btn-round btn-success" [disabled]="(!aceptarTerminos) && (!form_register2.valid)" (click)="createCount()" expand="block">Registrarse</ion-button>
+        <ion-button class="btn-round" (click)="step1 = true; step2 = false" color="dark" expand="block">Regresar</ion-button>
       </form>
     </ion-card-content>
   </ion-card>

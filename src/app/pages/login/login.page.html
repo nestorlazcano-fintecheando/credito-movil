@@ -1,0 +1,41 @@
+<ion-content class="background-login">
+  <ion-avatar class="positionAvata">
+    <img id="img-selfie" src="../../../assets/icon/icono-conserva.png">
+  </ion-avatar>
+
+  <div id="image"></div>
+  
+  <ion-card class="background-login margin-card-login" style="box-shadow: 0 0 0 0;">
+    <form [formGroup]="form_login" style="margin-bottom: 30%;">
+      <ion-list class="background-login" style="margin-bottom: 10%;">
+        <ion-item class="input-item" style="padding-bottom: 0px;">
+          <ion-icon class="icono-centrado color-icon" slot="start" name="person-outline"></ion-icon>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input formControlName="nClient" type="text" inputmode="text" required></ion-input>
+        </ion-item>
+        <app-validation-errors fieldName="nClient" [form]="form_login.get('nClient')"></app-validation-errors>
+  
+        <ion-item class="input-item">
+          <ion-icon class="icono-centrado color-icon" slot="start" name="key-outline"></ion-icon>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" [type]="hide ? 'password' : 'text'" inputmode="text"></ion-input>
+          <ion-icon class="icono-centrado" (click)="hide = !hide" [name]="hide ? 'eye' : 'eye-off'" slot="end" ></ion-icon>
+        </ion-item>
+        <app-validation-errors fieldName="password" [form]="form_login.get('password')"></app-validation-errors>
+  
+      </ion-list>
+  
+      <ion-button class="btn-round btn-success" [disabled]="!form_login.valid" (click)="login()" expand="block">Iniciar Sesión</ion-button>
+      <ion-button class="btn-round text-blue" color="dark" expand="block">
+        <ion-icon slot="end" name="logo-google"></ion-icon>
+        Iniciar con Google
+      </ion-button>
+    </form>
+
+    <ion-label class="center-label" color="dark">¿Aún no tienes acceso a nuesta App?</ion-label>
+    <ion-button class="btn-round btn-info" routerLink="/register" expand="block">Registrarse</ion-button>
+    <br>
+    <ion-label class="center-label" color="dark">Olvidé mi contraseña</ion-label>
+    <br>
+  </ion-card>
+</ion-content>
