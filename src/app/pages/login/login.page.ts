@@ -18,10 +18,12 @@ export class LoginPage implements OnInit {
   formLogin(){
     this.form_login = this.form.group({
       nClient: ['', [
-        Validators.required
+        Validators.required,
+        Validators.pattern("^[0-9]{9}$")
       ]],
       password: ['', [
-        Validators.required
+        Validators.required,
+        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$")
       ]]
     });
   }

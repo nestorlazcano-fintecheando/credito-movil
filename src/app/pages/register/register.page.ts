@@ -44,7 +44,7 @@ export class RegisterPage implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,16}$")
+        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$")
       ]],
       password2: ['', [
         Validators.required
@@ -55,7 +55,11 @@ export class RegisterPage implements OnInit {
         Validators.required,
         Validators.pattern("^[0-9]{10}$")
       ]],
-      curp: ['', [Validators.required]],
+      curp: ['', [
+        Validators.required,
+        Validators.maxLength(18),
+        Validators.minLength(18)
+      ]],
       dateBirth: ['', [Validators.required]],
       img: ['']
     })
