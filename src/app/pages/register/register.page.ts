@@ -4,6 +4,9 @@ import { Camera,CameraOptions } from '@ionic-native/camera/ngx';
 import { UserServiceService } from '@services/user/user-service.service';
 import { AlertController } from '@ionic/angular';
 
+//import * as faceapi from 'face-api.js';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -11,6 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
   confPassword = document.getElementById('confPassword');
+  image: String;
   hide = true;
   step1 = true;
   step2 = false;
@@ -18,15 +22,20 @@ export class RegisterPage implements OnInit {
   form_register1: FormGroup;
   form_register2: FormGroup;
 
+  ctx: CanvasRenderingContext2D;
+  img = new Image();
+
   constructor(
     private form: FormBuilder,
     private camera: Camera,
     private userService: UserServiceService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.formRegister();
+    //this.detect();
   }
 
   formRegister(){
@@ -44,7 +53,7 @@ export class RegisterPage implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$")
+        Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,12}")
       ]],
       password2: ['', [
         Validators.required
@@ -67,7 +76,9 @@ export class RegisterPage implements OnInit {
 
   createCount(){
     this.userService.register(this.form_register1.value,this.form_register2.value).subscribe(response => {
-      console.log(response)
+      this.router.navigate(['/login']);
+    },error =>{
+      this.presentAlert("Algo ocurrio mal.");
     })
   }
 
@@ -83,6 +94,7 @@ export class RegisterPage implements OnInit {
     this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
+      this.image = 'data:image/jpeg;base64,' + imageData
       this.form_register2.get("img").setValue('data:image/jpeg;base64,' + imageData);
       console.log(this.form_register2.get("img"))
     }, (err) => {
@@ -98,6 +110,42 @@ export class RegisterPage implements OnInit {
     }else{
       return group.get('password2').setErrors({notEquivalent: true})
     }    
+  }
+
+  async detect(uri) {
+
+    /*await faceapi.loadSsdMobilenetv1Model('../../../assets/weights')
+    await faceapi.loadFaceRecognitionModel('../../../assets/weights')
+    await faceapi.loadFaceLandmarkModel('../../../assets/weights')
+    //await faceapi.nets.faceLandmark68Net.loadFromDisk('../../../assets/weights')
+    //this.ctx.drawImage(imageObj.nativeElement, width, height);
+    const img = await faceapi.fetchImage(uri)
+    let fullFaceDescriptions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors()
+
+    //fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions,)
+    console.log(fullFaceDescriptions)
+    //faceapi.draw.drawDetections(canvas, fullFaceDescriptions)
+
+    //console.log('done 3')
+    const img = await canvas.loadImage('../../../assets/img/cara.jpg')
+    //const results = await faceapi.detectAllFaces(img, faceDetectionOptions).withFaceLandmarks()
+
+    const out = faceapi.createCanvasFromMedia(img) as any
+    faceapi.draw.drawDetections(out, results.map(res => res.detection))
+    faceapi.draw.drawFaceLandmarks(out, results.map(res => res.landmarks))
+  
+    saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
+    console.log('done, saved results to out/faceLandmarkDetection.jpg')*/
+  }
+
+  async presentAlert(msj) {
+    const alert = await this.alertController.create({
+      header: 'Error!',
+      message: msj,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   get name(){

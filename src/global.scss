@@ -30,7 +30,8 @@
 
 ion-label {
     --ion-default-font: "roboto";
-    font-size: 16px !important;
+    font-size: 15px !important;
+    color:white;
 }
 
 ion-label.form {
@@ -40,6 +41,7 @@ ion-label.form {
 .input-item{
     margin-top: 2%;
     --ion-border-color: white;
+    color:white;
 }
 
 ion-item.item-has-focus > ion-label{
@@ -64,7 +66,8 @@ ion-list.background{
 }
 
 .icono-centrado{
-    padding-top: 14px;;
+    padding-top: 14px;
+    color:white;
 }
 
 .margin-card{
@@ -89,6 +92,7 @@ ion-list.background{
     --color: white;
 }
 
-.text-blue{
-    --ion-color-contrast:#043C80 !important;
+.btn-white{
+    --background: white;
+    --color: black;
 }

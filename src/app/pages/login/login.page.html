@@ -26,16 +26,16 @@
       </ion-list>
   
       <ion-button class="btn-round btn-success" [disabled]="!form_login.valid" (click)="login()" expand="block">Iniciar Sesión</ion-button>
-      <ion-button class="btn-round text-blue" color="dark" expand="block">
+      <ion-button class="btn-white btn-round"  style="color:#043C80 !important;" expand="block">
         <ion-icon slot="end" name="logo-google"></ion-icon>
         Iniciar con Google
       </ion-button>
     </form>
 
-    <ion-label class="center-label" color="dark">¿Aún no tienes acceso a nuesta App?</ion-label>
+    <ion-label class="center-label" >¿Aún no tienes acceso a nuesta App?</ion-label>
     <ion-button class="btn-round btn-info" routerLink="/register" expand="block">Registrarse</ion-button>
     <br>
-    <ion-label class="center-label" color="dark">Olvidé mi contraseña</ion-label>
+    <ion-label class="center-label" >Olvidé mi contraseña</ion-label>
     <br>
   </ion-card>
 </ion-content>

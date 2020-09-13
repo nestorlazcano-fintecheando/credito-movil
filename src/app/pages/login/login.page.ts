@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { UserServiceService } from '@services/user/user-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { UserServiceService } from '@services/user/user-service.service';
 export class LoginPage implements OnInit {
   hide = true;
   form_login: FormGroup;
-  constructor(private form: FormBuilder, private userService: UserServiceService) { }
+  constructor(
+    private form: FormBuilder, 
+    private userService: UserServiceService,
+    private alertController: AlertController
+    ) { }
 
   ngOnInit() {
     this.formLogin();
@@ -23,7 +28,7 @@ export class LoginPage implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$")
+        Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,12}")
       ]]
     });
   }
@@ -31,6 +36,19 @@ export class LoginPage implements OnInit {
   login(){
     this.userService.login(this.form_login.value).subscribe(response => {
       console.log(response)
+    },error=>{
+      this.presentAlert();
     })
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Error!',
+      message: 'Su contraseña o usuario son incorrectos.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }
