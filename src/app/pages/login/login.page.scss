@@ -24,8 +24,8 @@ ion-list.background-login{
     background-color: #043C80; 
     margin-top: 0px;
     position:absolute;
-    top: 25%;
-    left: 36%;
+    top: calc( ( 100% - 150px) / 3);
+    left: calc( (100% - 100px) / 2 );
 }
 
 .color-icon{

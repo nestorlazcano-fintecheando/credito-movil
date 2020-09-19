@@ -3,28 +3,30 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Camera,CameraOptions } from '@ionic-native/camera/ngx';
 import { UserServiceService } from '@services/user/user-service.service';
 import { AlertController } from '@ionic/angular';
-
-//import * as faceapi from 'face-api.js';
 import { Router } from '@angular/router';
+
+declare var faceapi;
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
+
 export class RegisterPage implements OnInit {
   confPassword = document.getElementById('confPassword');
   image: String;
+  isFace = true;
   hide = true;
   step1 = true;
   step2 = false;
+  mensajeSelfi ="Tómate una selfie";
   aceptarTerminos = false;
   form_register1: FormGroup;
   form_register2: FormGroup;
-
-  ctx: CanvasRenderingContext2D;
+  minConfidence: number = 0.9;
   img = new Image();
-
+  showBtnSelfi = 1;
   constructor(
     private form: FormBuilder,
     private camera: Camera,
@@ -35,7 +37,7 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.formRegister();
-    //this.detect();
+    this.loadModels();
   }
 
   formRegister(){
@@ -45,7 +47,7 @@ export class RegisterPage implements OnInit {
       apellidoM: [''],
       email: ['', [
         Validators.required,
-        Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
+        Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]],
       nClient: ['', [
         Validators.required,
@@ -76,29 +78,33 @@ export class RegisterPage implements OnInit {
 
   createCount(){
     this.userService.register(this.form_register1.value,this.form_register2.value).subscribe(response => {
+      console.log(response)
+      this.presentAlert("Datos correctos!","Usuario creado correctamente.")
       this.router.navigate(['/login']);
-    },error =>{
-      this.presentAlert("Algo ocurrio mal.");
+    },err =>{
+      console.log(err)
+      this.presentAlert('Error!',err.error);
     })
   }
 
   tomarFoto(){
-    console.log(this.form_register2.get("img"))
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: true,
+      targetWidth: 350,
+      targetHeight: 350,
+      correctOrientation: true,
+      cameraDirection: this.camera.Direction.FRONT
     }
-    
     this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
-      this.image = 'data:image/jpeg;base64,' + imageData
-      this.form_register2.get("img").setValue('data:image/jpeg;base64,' + imageData);
-      console.log(this.form_register2.get("img"))
+      this.form_register2.get("img").setValue(imageData);
+      this.image = 'data:image/jpeg;base64,' + imageData      
+      setTimeout(() => this.detect(), 200);
     }, (err) => {
-     // Handle error
+      this.presentAlert('Ups!',"No se pudo cargar la foto.");
     });
   }
 
@@ -112,35 +118,41 @@ export class RegisterPage implements OnInit {
     }    
   }
 
-  async detect(uri) {
+  async detect() {
+    const urlImg = document.getElementById('img-photo');
+    const options = this.getFaceDetectorOptions();
+    let fullFaceDescriptions = await faceapi.detectAllFaces(urlImg,options);
+    console.log("AQUI2: ",fullFaceDescriptions);
 
-    /*await faceapi.loadSsdMobilenetv1Model('../../../assets/weights')
-    await faceapi.loadFaceRecognitionModel('../../../assets/weights')
-    await faceapi.loadFaceLandmarkModel('../../../assets/weights')
-    //await faceapi.nets.faceLandmark68Net.loadFromDisk('../../../assets/weights')
-    //this.ctx.drawImage(imageObj.nativeElement, width, height);
-    const img = await faceapi.fetchImage(uri)
-    let fullFaceDescriptions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors()
-
-    //fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions,)
-    console.log(fullFaceDescriptions)
-    //faceapi.draw.drawDetections(canvas, fullFaceDescriptions)
-
-    //console.log('done 3')
-    const img = await canvas.loadImage('../../../assets/img/cara.jpg')
-    //const results = await faceapi.detectAllFaces(img, faceDetectionOptions).withFaceLandmarks()
-
-    const out = faceapi.createCanvasFromMedia(img) as any
-    faceapi.draw.drawDetections(out, results.map(res => res.detection))
-    faceapi.draw.drawFaceLandmarks(out, results.map(res => res.landmarks))
-  
-    saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
-    console.log('done, saved results to out/faceLandmarkDetection.jpg')*/
+    //Ver si es cara con un 90%
+    if(fullFaceDescriptions.length==1){
+      this.mensajeSelfi = "Foto valida!";
+      this.showBtnSelfi=2;
+      this.isFace=true;
+      this.presentAlert('Foto valida!',"Es una cara.");
+    }else{
+      this.form_register2.get("img").setValue("");
+      this.showBtnSelfi=3;
+      this.isFace=false;
+      this.mensajeSelfi = "Foto invalida: Solo debe aparecer su cara."
+      this.presentAlert('Error!',"No es una cara o hay más de una.");
+    }
   }
 
-  async presentAlert(msj) {
+  async loadModels() {
+    const deviceMemory = (navigator as any).deviceMemory;
+    if (deviceMemory && deviceMemory >= 1) {
+      await faceapi.nets.ssdMobilenetv1.load(await faceapi.fetchNetWeights('../../../assets/face-api/ssd_mobilenetv1.weights'));
+    }  
+  }
+
+  getFaceDetectorOptions() {
+    return new faceapi.SsdMobilenetv1Options({ minConfidence: this.minConfidence })
+  }
+
+  async presentAlert(header,msj) {
     const alert = await this.alertController.create({
-      header: 'Error!',
+      header: header,
       message: msj,
       buttons: ['OK']
     });

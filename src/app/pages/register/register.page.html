@@ -62,10 +62,19 @@
                 <ion-item lines="none">
                   <ion-avatar class="positionAvata">
                     <img *ngIf="!image" id="img-selfie" src="../../../assets/img/Asset 3.png">
-                    <img *ngIf="image" [src]="image">
+                    <img id="img-photo" *ngIf="image" [src]="image">
                   </ion-avatar>
-                  <ion-fab-button (click)="tomarFoto()" size="small" class="btn-selfie btn-info">
+                  <!-- Btn por defecto -->
+                  <ion-fab-button *ngIf="showBtnSelfi==1" (click)="tomarFoto()" size="small" class="btn-selfie btn-info">
                     <ion-icon name="camera"></ion-icon>
+                  </ion-fab-button>
+                  <!-- Btn para valido -->
+                  <ion-fab-button *ngIf="showBtnSelfi==2" (click)="tomarFoto()" size="small" class="btn-selfie btn-success">
+                    <ion-icon name="checkmark"></ion-icon>
+                  </ion-fab-button>
+                  <!-- Btn para error -->
+                  <ion-fab-button *ngIf="showBtnSelfi==3" (click)="tomarFoto()" size="small" class="btn-selfie btn-error">
+                    <ion-icon name="close"></ion-icon>
                   </ion-fab-button>
                 </ion-item>
               </ion-col>
@@ -75,7 +84,7 @@
               <ion-col></ion-col>
               <ion-col>
                 <ion-item lines="none">
-                  <ion-label style="color:white">Tómate una selfie</ion-label>
+                  <ion-label style="color:white">{{mensajeSelfi}}</ion-label>
                 </ion-item>
               </ion-col>
               <ion-col></ion-col>
@@ -104,10 +113,10 @@
         <ion-list class="background" style="border:none !important; margin-top: 20%;">
           <ion-item style="color:white" lines="none">
             <ion-label>Acepto <a href="#" style="text-decoration:none;color:white;font-weight: bold;">terminos y condiciones</a></ion-label>
-            <ion-checkbox color="light" style="border-color: white;" (click)="aceptarTerminos = !aceptarTerminos" slot="end"></ion-checkbox>
+            <ion-checkbox style="--border-color: white;" (click)="aceptarTerminos = !aceptarTerminos" slot="end"></ion-checkbox>
           </ion-item>
         </ion-list>
-        <ion-button class="btn-round btn-success" [disabled]="(!aceptarTerminos) && (!form_register2.valid)" (click)="createCount()" expand="block">Registrarse</ion-button>
+        <ion-button class="btn-round btn-success" [disabled]="!aceptarTerminos || !isFace || !form_register2.valid" (click)="createCount()" expand="block">Registrarse</ion-button>
         <ion-button class="btn-round" (click)="step1 = true; step2 = false"  expand="block">Regresar</ion-button>
       </form>
     </ion-card-content>

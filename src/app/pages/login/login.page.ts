@@ -35,16 +35,16 @@ export class LoginPage implements OnInit {
 
   login(){
     this.userService.login(this.form_login.value).subscribe(response => {
-      console.log(response)
+      this.presentAlert("Datos correctos!","Validacion exitosa.");
     },error=>{
-      this.presentAlert();
+      this.presentAlert("Error!","Su contraseña o usuario son incorrectos.");
     })
   }
 
-  async presentAlert() {
+  async presentAlert(header,msj) {
     const alert = await this.alertController.create({
-      header: 'Error!',
-      message: 'Su contraseña o usuario son incorrectos.',
+      header: header,
+      message: msj,
       buttons: ['OK']
     });
 

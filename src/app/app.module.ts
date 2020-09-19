@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     ComponentsModule,
-    HttpClientModule
+    HttpClientModule,  
   ],
   providers: [
     StatusBar,
