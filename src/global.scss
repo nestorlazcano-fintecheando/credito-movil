@@ -101,3 +101,54 @@ ion-list.background{
     --background: white;
     --color: black;
 }
+
+.alert-input.sc-ion-alert-md{
+    border-color:  #B1C800 !important;
+    text-align: center;
+    font-size: 15px;
+}
+
+.alertcss{ 
+    --max-width: 90%;
+}
+
+.alert-message.sc-ion-alert-md{
+    color:#0552AF;
+}
+
+.alert-sub-title.sc-ion-alert-md{
+    color:#0A4388;
+    text-align: center;
+}
+
+.alert-title.sc-ion-alert-md{
+    color:#043C80;
+    text-align: center;
+}
+
+/* css de los btn de las alertas */
+.btn-alert{
+    border-radius: 20px !important;
+    text-align: center !important;
+    margin-bottom: 10px!important;
+}
+.btn-success-alert{
+    background-color: #B1C800 !important;
+    color: white !important;
+
+}
+.btn-success-cancelar{
+    background-color: #F2F2F2 !important;
+    color: black !important;
+}
+.btn-success-resend{
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #7D7D7D!important;
+}
+
+.alert-button-inner{
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center!important;  
+}

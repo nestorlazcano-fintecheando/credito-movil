@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { ValidationErrorsComponent } from './validation-errors/validation-errors
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    TranslateModule
   ]
 })
 export class ComponentsModule { }
