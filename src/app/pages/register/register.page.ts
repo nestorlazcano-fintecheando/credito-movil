@@ -18,7 +18,7 @@ export class RegisterPage implements OnInit {
   confPassword = document.getElementById('confPassword');
   image: String;
   loading: any;
-  isFace = true;
+  isFace = false;
   hide = true;
   step1 = true;
   step2 = false;
