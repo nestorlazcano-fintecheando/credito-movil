@@ -8,6 +8,7 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 
 import { RegisterPage } from './register.page';
 import { ComponentsModule } from '@components/components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ComponentsModule } from '@components/components.module';
     RegisterPageRoutingModule,
     ReactiveFormsModule,
     ComponentsModule,
+    TranslateModule
   ],
   declarations: [RegisterPage]
 })

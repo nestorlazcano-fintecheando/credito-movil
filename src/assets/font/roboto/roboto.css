@@ -1,0 +1,16 @@
+@font-face{
+    font-family: 'roboto';
+    src: 
+        url("../roboto/Roboto-Regular.ttf"),
+        url("../roboto/Roboto-Black.ttf"),
+        url("../roboto/Roboto-BlackItalic.ttf"),
+        url("../roboto/Roboto-Bold.ttf"),
+        url("../roboto/Roboto-BoldItalic.ttf"),
+        url("../roboto/Roboto-Italic.ttf"),
+        url("../roboto/Roboto-Light.ttf"),
+        url("../roboto/Roboto-LightItalic.ttf"),
+        url("../roboto/Roboto-Medium.ttf"),
+        url("../roboto/Roboto-MediumItalic.ttf"),
+        url("../roboto/Roboto-Thin.ttf"),
+        url("../roboto/Roboto-ThinItalic.ttf");
+}

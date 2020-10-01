@@ -1,32 +1,20 @@
-.icono-centrado{
-    padding-top: 14px;;
-}
-
 .btn-selfie{
     position:absolute;
     left: 60px;
     top: 60px;
 }
 
-.error-message {
-    color: var(--ion-color-danger);
-}
-
 #img-selfie{
-    width: 80px;
-    height: 80px;
-    margin-left: 12px;
-    margin-top: 10px;
-}
-ion-content.background{
-    //--ion-background-color:#AF5921;
-    --background: url('../../../assets/img/bg-app.png') 0 0/100% 100% no-repeat;
+    width: 62px;
+    height: 66px;
+    margin-left: 19%;
+    margin-top: 15%;
+    --border-radius: 0px;
 }
 
-ion-card.background{
-    --background: rgba(255,0,0,0);
-}
-
-ion-list.background{
-    --ion-item-background: rgba(255,0,0,0);
+.positionAvata{
+    height: 100px;
+    width: 100px; 
+    background-color: white; 
+    margin-top: 0px;
 }
