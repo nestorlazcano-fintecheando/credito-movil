@@ -1,0 +1,68 @@
+.payment-cards{
+    border-left: 8px solid;
+    --background:#F7F7F7;
+    height: 80px;
+    display: grid;
+    align-items: center;
+}
+.payment-cards-blue{
+    border-color: #0652AF;
+}
+.payment-cards-yellow{
+    border-color: #DBD460;
+}
+.payment-cards-green{
+    border-color: #189746;
+}
+.icon-card{
+    margin-right: 2%;
+    height: 33px;
+    width: 33px;
+}
+
+.title-card{
+    //color:red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.body-card{
+    font-size: 14px;
+}
+
+.price-card{
+    font-size: 20px;
+}
+
+.date-card{
+    color:#00ABFF;
+    font-size: 14px;
+}
+
+
+/*@media(max-width: 1024px){
+    .payment-cards{
+        height: 110px;
+    }
+    .icon-card{
+        height: 40px;
+        width: 40px;
+    }
+    
+    .title-card{
+        //color:red;
+        font-size: 19px;
+    }
+    
+    .body-card{
+        font-size: 20px;
+    }
+    
+    .price-card{
+        font-size: 26px;
+    }
+    
+    .date-card{
+        font-size: 20px;
+    }
+}*/

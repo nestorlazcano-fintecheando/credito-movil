@@ -53,16 +53,23 @@ export class RegisterPage implements OnInit {
 
   formRegister(){
     this.form_register1 = this.form.group({
-      name: ['', [Validators.required]],
-      apellidoP: ['', [Validators.required]],
-      apellidoM: [''],
+      name: ['', [
+        Validators.required,
+        Validators.pattern("[a-zA-Z ]{2,150}")
+      ]],
+      apellidoP: ['', [
+        Validators.required,
+        Validators.pattern("[a-zA-Z ]{2,150}")
+      ]],
+      apellidoM: ['',[Validators.pattern("[a-zA-Z ]{2,150}")]],
       email: ['', [
         Validators.required,
         Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]],
       nClient: ['', [
         Validators.required,
-        Validators.pattern("^[0-9]{9}$")
+        Validators.pattern("^[0-9]{9}$"),
+        Validators.min(1)
       ]],
       password: ['', [
         Validators.required,

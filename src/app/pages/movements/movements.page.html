@@ -1,0 +1,40 @@
+<app-header titulo="Mis Movimientos"></app-header>
+
+<ion-content>
+  <ion-item class="card-info ion-no-padding" lines="none">
+    <ion-grid class="number-count">
+      <ion-row>
+        <ion-col>
+          000000123456
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="font-ligh">
+        <ion-col style="padding-right: 0;">
+          <span>SALDO TOTAL</span>
+        </ion-col>
+        <ion-col style="padding-right: 0;" size="6">
+          <span>PAGO PARA NO GENRAR INTERESES</span>
+        </ion-col>
+        <ion-col style="padding-right: 0;">
+          <span>FECHA LÍMITE PAGO</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="data-count">
+        <ion-col>
+          14,635.00
+        </ion-col>
+        <ion-col size="6">
+          1,635.00
+        </ion-col>
+        <ion-col>
+          13/06/2019
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-item>
+
+  <app-payment-cards [data]="arrayMovements"></app-payment-cards>
+</ion-content>

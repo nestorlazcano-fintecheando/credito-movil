@@ -4,16 +4,19 @@ import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaymentCardsComponent } from './payment-cards/payment-cards.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    ValidationErrorsComponent
+    ValidationErrorsComponent,
+    PaymentCardsComponent
   ],
   exports:[
     HeaderComponent,
-    ValidationErrorsComponent
+    ValidationErrorsComponent,
+    PaymentCardsComponent
   ],
   imports: [
     CommonModule,

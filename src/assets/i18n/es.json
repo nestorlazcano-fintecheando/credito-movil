@@ -47,5 +47,7 @@
     "INFOREGISTER":"Para completar el registro, revisa tus mensajes de texto, deberá haber llegado un código de autenticación que deberás proporcionar a continuación.<br><span>Si el código no ha llegado, selecciona la opción Reenviar.</span>",
     "CODEAUTHENTICATION" : "Código de autentificación",
     "NCER" : "El número de cliente ya se encuentra registrado.",
-    "CNCD": "La CURP no coincide con los datos."
+    "CNCD": "La CURP no coincide con los datos.",
+    "MINERROR":"El valor debe ser",
+    "ONLYLETTERS":"Sólo se acepta letras y espacios"
 }

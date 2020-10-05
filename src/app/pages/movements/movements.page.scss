@@ -1,0 +1,34 @@
+.card-info{
+    --background: #043C80;
+    --color:white;
+    --min-height:50px;
+}
+
+.font-ligh{
+    font-weight:lighter;
+    font-size: 10px;
+    padding: 0;
+}
+
+.number-count{
+    font-size: 16px;
+}
+
+.data-count{
+    font-size: 15px;
+}
+
+/*@media(max-width: 1024px){
+    .card-info{
+        --min-height:150px;
+    }
+    .font-ligh{
+        font-size: 16px;
+    }
+    .number-count{
+        font-size: 22px;
+    }
+    .data-count{
+        font-size: 21px;
+    }
+}*/
