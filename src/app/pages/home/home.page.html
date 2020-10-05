@@ -1,28 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-color-avatar" size="6">
+        <ion-avatar button (click)="menuSalir()">
+          <img src="{{ urlAvatar }}">
+        </ion-avatar>
+      </ion-col>
+      <ion-col class="color-section-empty">
+      </ion-col>
+      </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-
-  <ion-list>
-    <ion-item routerLink="/register" detail>
-      <ion-label>Registro</ion-label>
-    </ion-item>
-  </ion-list>
-
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="position-father position-relative">
+    <ion-row>
+      <ion-col class="color-section-one" size="6">
+      </ion-col>
+      <ion-col class="color-section-two">
+      </ion-col>
+      </ion-row>
   </div>
+  <div class="position-card position-relative">
+    <app-cards-loan [data]="data"></app-cards-loan>
+  </div>
+  <div class="position-button position-relative">
+    <ion-button (click)="onExpanded()" expand="block" fill="clear" shape="round">
+      <ion-icon name="{{iconexpand}}"></ion-icon>
+    </ion-button>
+    <div class="position-buttons" *ngIf="expanded">
+      <ion-card class="card-options-buttons">
+        <ion-icon class="icon-qr-color" name="qr-code-outline"></ion-icon>
+        <ion-card-content class="text-content">
+          Mis cuentas
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="card-options-buttons">
+        <ion-icon class="icon-qr-color" name="qr-code-outline"></ion-icon>
+        <ion-card-content class="text-content">
+          Solicitar un Préstamo
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="card-options-buttons">
+        <ion-icon class="icon-qr-color" name="qr-code-outline"></ion-icon>
+        <ion-card-content class="text-content">
+          Código de Barras y QR
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="position-list">
+      <br>
+      <ion-card *ngFor="let item of card" class="position-list-card" button="true"> 
+        <ion-card-content>
+          This is content, without any paragraph or header tags,
+          within an ion-card-content element.
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
 </ion-content>

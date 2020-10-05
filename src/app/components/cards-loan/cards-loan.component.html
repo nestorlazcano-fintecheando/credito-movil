@@ -1,0 +1,42 @@
+<ion-slides [options]="sliderConfig">
+  <ion-slide *ngFor="let item of data">
+<ion-card [ngStyle]="{'background': 'url('+ item.img +')'}" button mode="md" class="cards-body">
+  <ion-card-content>
+    <ion-label class="no-account" color="textcard">{{item.accountNo}}</ion-label>
+    <br>
+    <ion-label class="balance" color="textcard">SALDO TOTAL</ion-label>
+    <br>
+    <ion-label class="balance-total" color="textcard">{{item.amount | currency}}</ion-label>
+    <br>
+    <ion-label class="payment-not-interest" color="textcard">PAGO PARA NO GENERAR INTERESES</ion-label>
+    <br>
+    <ion-label class="not-interest" color="textcard">{{item.pago | currency}}</ion-label>
+    <br>
+    <ion-label class="payday-limit" color="textcard">FECHA LIMITE DE PAGO, <strong class="date">{{item.datepago | date: 'EEEE, dd/MM/yyyy' }}</strong></ion-label>
+  </ion-card-content>  
+</ion-card>
+</ion-slide>
+</ion-slides>
+
+<!--<ion-slides [options]="sliderConfig">
+  <ion-slide *ngFor="let item of data">
+    <ion-card  [ngStyle]="{'background': 'url('+ item.img +')'}" button mode="md" class="card-body">
+      <ion-card-header>
+        <ion-card-subtitle class="margin-account">{{item.accountNo}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-header class="ion-no-padding">
+          <ion-card-subtitle class="margin-balance">SALDO TOTAL</ion-card-subtitle>
+          <ion-card-title class="margin-balance-total">{{item.amount == 0 ? '$000.00' : item.amount | currency}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-header class="ion-no-padding">
+          <ion-card-subtitle class="margin-payment-not-interest">PAGO PARA NO GENERAR INTERESES</ion-card-subtitle>
+          <ion-card-title class="margin-not-interest">{{item.pago == 0 ? '$000.00' : item.pago | currency}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-header class="ion-no-padding">
+          <ion-card-subtitle class="margin-payday-limit">FECHA LIMITE DE PAGO <ion-label class="date-payday-limit">{{item.datepago | date: 'EEEE, dd/MM/yyyy' }}</ion-label></ion-card-subtitle>
+        </ion-card-header>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+</ion-slides>-->

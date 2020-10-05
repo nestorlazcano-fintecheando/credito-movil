@@ -1,3 +1,38 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header class="ion-no-border ion-padding">
+      <ion-toolbar  id="color-background">
+        <ion-avatar>
+          <img src="/assets/img/avatar/stan-lee.jpg">
+        </ion-avatar>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none" class="ion-no-padding">
+        <ion-item no-lines>
+          <ion-icon class="ion-padding" name="home-outline"></ion-icon>
+          Inicio
+        </ion-item>
+        <ion-item>
+          <ion-icon class="ion-padding" class="ion-padding" name="card-outline"></ion-icon>
+          Mis Cuentas
+        </ion-item>
+        <ion-item>
+          <ion-icon class="ion-padding" name="thumbs-up-outline"></ion-icon>
+          Solicitar un Prestamo
+        </ion-item>
+        <ion-item>
+          <ion-icon class="ion-padding" name="qr-code-outline"></ion-icon>
+          Codigo de barras y QR
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <ion-footer class="ion-no-border">
+      <ion-item>
+        Cerrar sesion
+      </ion-item>
+    </ion-footer>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

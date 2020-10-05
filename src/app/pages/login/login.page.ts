@@ -4,6 +4,7 @@ import { UserServiceService } from '@services/user/user-service.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginPage implements OnInit {
     private userService: UserServiceService,
     private alertController: AlertController,
     private loadingController:LoadingController,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
     ) {
       localStorage.removeItem("user");
     }
@@ -49,10 +51,13 @@ export class LoginPage implements OnInit {
     )
     this.userService.login(this.form_login.value).subscribe(response => {
       this.loading.dismiss();
-      this.presentAlert("Datos correctos!","Validacion exitosa.");
+     // this.presentAlert("Datos correctos!","Validacion exitosa.");
       
       //Guardar local
       window.localStorage['user'] = JSON.stringify(response);
+      //RedirectHome
+      this.router.navigate(['/home']);
+      
     },error=>{
       this.loading.dismiss();
       this.translate.get('LOGINERROR').subscribe(

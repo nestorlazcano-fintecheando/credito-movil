@@ -1,0 +1,255 @@
+.padding-slides{
+  margin-top: -10px !important;
+}
+
+.cards-body{
+  width: 270px!important;
+  height: 120px!important;
+  background-repeat: no-repeat!important;
+  background-size: 270px!important;
+}
+
+.no-account{
+  float: right!important;
+  font-size: 11px!important;
+  margin-top: -5px!important;
+}
+
+.balance, .payment-not-interest, .payday-limit{
+  float: left!important;
+  font-size: 8px!important;
+}
+
+.balance-total, .not-interest{
+  font-size: 15px!important;
+  float: left!important;
+}
+
+.balance{
+  margin-top: -12px!important;
+}
+
+.balance-total{
+  margin-top: -18px!important;
+}
+
+.payment-not-interest{
+  margin-top: -15px!important;
+}
+
+.not-interest{
+  margin-top: -20px!important;
+}
+.payday-limit{
+  margin-top: -18px!important;
+}
+.date{
+  font-size: 11px!important;
+}
+
+
+@media(min-width: 541px) and(max-width: 768px){
+  .cards-body{
+    width: 500px!important;
+    height: 200px!important;
+    background-size: 500px!important;
+  }
+
+  .no-account{
+    float: right!important;
+    font-size: 15px!important;
+    margin-top: -5px!important;
+  }
+
+  .balance, .payment-not-interest, .payday-limit{
+    font-size: 12px!important;
+  }
+
+  .balance-total, .not-interest{
+    font-size: 20px!important;
+  }
+
+  .balance{
+    margin-top: 10px!important;
+    margin-left: 20px!important;
+  }
+
+  .balance-total{
+    margin-top: 12px!important;
+    margin-left: -78px!important;
+  }
+
+  .payment-not-interest{
+    margin-top: 30px!important;
+    margin-left: -87px!important;
+  }
+
+  .not-interest{
+    margin-top: 30px!important;
+    margin-left: -205px!important;
+  }
+
+  .payday-limit{
+    margin-top: 45px!important;
+    margin-left: -205px!important;
+  }
+
+  .date{
+    font-size: 15px!important;
+  }
+
+}
+
+@media(min-width: 769px) and(max-width: 1024px){
+
+  .cards-body{
+    width: 630px!important;
+    height: 250px!important;
+    background-size: 630px!important;
+  }
+
+  .balance, .payment-not-interest, .payday-limit{
+    font-size: 15px!important;
+  }
+  
+  .balance-total, .not-interest{
+    font-size: 25px!important;
+  }
+
+  .no-account{
+    float: right!important;
+    font-size: 20px!important;
+    margin-top: -5px!important;
+  }
+
+  .balance{
+    margin-top: 20px!important;
+    margin-left: 25px!important;
+  }
+
+  .balance-total{
+    margin-top: 25px!important;
+    margin-left: -97px!important;
+  }
+
+  .payment-not-interest{
+    margin-top: 55px!important;
+    margin-left: -108px!important;
+  }
+
+  .not-interest{
+    margin-top: 60px!important;
+    margin-left: -255px!important;
+  }
+
+  .payday-limit{
+    margin-top: 85px!important;
+    margin-left: -254px!important;
+  }
+
+  .date{
+    font-size: 19px!important;
+  }
+
+}
+
+@media(min-width: 415px) and (max-width: 540px){
+  .cards-body{
+    width: 360px!important;
+    height: 150px!important;
+    background-size: 360px!important;
+  }
+
+  .balance, .payment-not-interest, .payday-limit{
+    font-size: 11px!important;
+  }
+  
+  .balance-total, .not-interest{
+    font-size: 16px!important;
+  }
+  
+  .no-account{
+    float: right!important;
+    font-size: 15px!important;
+    margin-top: -5px!important;
+  }
+
+  .balance{
+    margin-top: -10px!important;
+    margin-left: 10px!important;
+  }
+
+  .balance-total{
+    margin-top: -12px!important;
+    margin-left: 10px!important;
+  }
+
+  .payment-not-interest{
+    margin-top: -8px!important;
+    margin-left: 11px!important;
+  }
+  .not-interest{
+    margin-top: -10px!important;
+    margin-left: 10px!important;
+  }
+
+  .payday-limit{
+    margin-top: -10px!important;
+    margin-left: 11px!important;
+  }
+
+  .date{
+    font-size: 19px!important;
+  }
+
+}
+
+@media(min-width: 279px) and(max-width: 280px){
+
+  .cards-body{
+    width: 200px!important;
+    height: 89px!important;
+    background-size: 200px!important;
+  }
+
+  .balance, .payment-not-interest, .payday-limit{
+    font-size: 7px!important;
+  }
+  
+  .balance-total, .not-interest{
+    font-size: 12px!important;
+  }
+  
+  .no-account{
+    float: right!important;
+    font-size: 9px!important;
+    margin-top: -8px!important;
+  }
+
+  .balance{
+    margin-top: -17px!important;
+  }
+
+  .balance-total{
+    margin-top: -28px!important;
+  }
+
+  .payment-not-interest{
+    margin-top: -30px!important;
+  }
+
+  .not-interest{
+    margin-top: -40px!important;
+  }
+
+  .payday-limit{
+    margin-top: -45px!important;
+    margin-right: -30px!important;
+  }
+
+  .date{
+    font-size: 10px!important;
+  }
+
+}
+
