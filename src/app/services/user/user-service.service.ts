@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Register } from '@models/users/register';
 import { Login } from '@models/users/login';
-import { tokenName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'

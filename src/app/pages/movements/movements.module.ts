@@ -8,6 +8,7 @@ import { MovementsPageRoutingModule } from './movements-routing.module';
 
 import { MovementsPage } from './movements.page';
 import { ComponentsModule } from '@components/components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '@components/components.module';
     FormsModule,
     IonicModule,
     MovementsPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    TranslateModule
   ],
   declarations: [MovementsPage]
 })

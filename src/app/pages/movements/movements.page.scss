@@ -1,7 +1,15 @@
 .card-info{
-    --background: #043C80;
+    //--background: #043C80;
+    --background: url('/assets/img/cards/Tarjeta01_1.svg');
     --color:white;
     --min-height:50px;
+    margin-bottom: 6%;
+    width: 100%;
+}
+
+.pagination{
+    --bullet-background: #7D7D7D;
+    --bullet-background-active:#7D7D7D;
 }
 
 .font-ligh{
@@ -11,11 +19,20 @@
 }
 
 .number-count{
-    font-size: 16px;
+    font-size: 17px;
 }
 
-.data-count{
-    font-size: 15px;
+.payment-cards{
+    border-left: 8px solid;
+    --background:#F7F7F7;
+    height: 80px;
+    display: grid;
+    align-items: center;
+}
+.icon-card{
+    margin-right: 2%;
+    height: 33px;
+    width: 33px;
 }
 
 /*@media(max-width: 1024px){

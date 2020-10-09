@@ -43,11 +43,17 @@
     "MORESTEP" : "Just one more step.",
     "SEND" : "Send",
     "RESEND" : "Resend",
-    "CHECKMESSAGES":"Check your text messages",
-    "INFOREGISTER":"To complete the registration, check your text messages, an authentication code must have arrived that you must provide below. <br> <span> If the code has not arrived, select the Resend option. </span>",
+    "CHECKMESSAGES" : "Check your text messages",
+    "INFOREGISTER" : "To complete the registration, check your text messages, an authentication code must have arrived that you must provide below. <br> <span> If the code has not arrived, select the Resend option. </span>",
     "CODEAUTHENTICATION" : "Authentication code",
     "NCER" : "The client number is already registered.",
-    "CNCD": "The CURP does not match the data.",
-    "MINERROR":"The value must be",
-    "ONLYLETTERS":"Only letters and spaces are accepted"
+    "CNCD" : "The CURP does not match the data.",
+    "MINERROR" : "The value must be",
+    "ONLYLETTERS" : "Only letters and spaces are accepted",
+    "MYACOUNT" : "My accounts",
+    "MOVEMENTS" : "My movements",
+    "PCALENDAR" : "Payment calendar",
+    "BQRO" : "Barcode and QR operations",
+    "LOANDATA" : "Loan data",
+    "CREDIT" : "Credit"
 }

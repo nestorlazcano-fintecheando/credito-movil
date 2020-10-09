@@ -18,6 +18,7 @@ export class RegisterPage implements OnInit {
   confPassword = document.getElementById('confPassword');
   image: String;
   loading: any;
+  showBar = false;
   isFace = false;
   hide = true;
   step1 = true;
@@ -100,7 +101,7 @@ export class RegisterPage implements OnInit {
         this.presentLoading(value+"...");
       }
     )
-    this.userService.register(this.form_register1.value,this.form_register2.value).subscribe(response => {
+    this.userService.register(this.form_register1.value,this.form_register2.value).toPromise().then(response => {
       //Guardar local
       let lol= localStorage.setItem("user", JSON.stringify(response));
      
@@ -110,13 +111,18 @@ export class RegisterPage implements OnInit {
           this.presentAlertPhone(value);
         }
       )
-    },err =>{
+    }).catch( err => {
       this.loading.dismiss();
-      this.presentAlert('Error!',err.error);
+      this.translate.get("CORRECTDATA").subscribe(
+        value => {
+          this.presentAlert('Error!',value);
+        }
+      )
     })
   }
 
   tomarFoto(){
+    this.showBar = true;
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -152,28 +158,28 @@ export class RegisterPage implements OnInit {
   }
 
   sendCode(){
-    this.userService.sendCode(this.form_register2.get("phone").value).subscribe(response => {
-      this.loading.dismiss();
-    },err =>{
-      this.loading.dismiss();
+    this.userService.sendCode(this.form_register2.get("phone").value).toPromise().then(response => {
+
+    }).catch( err => {
       this.translate.get('TRYAGAIN').subscribe(
         value => {
           this.presentAlert('Error!',value);
         }
       )
+    }).finally(() => {
+      this.loading.dismiss();
     })
   }
 
   verificationCode(code){
-    this.userService.verificationCode(code.code,this.form_register2.get("phone").value).subscribe(response => {      
+    this.userService.verificationCode(code.code,this.form_register2.get("phone").value).toPromise().then(response => {      
       this.translate.get(['CREATEUSER','CORRECTDATA']).subscribe(
         value => {
           this.presentAlert(value.CORRECTDATA+"!",value.CREATEUSER);
         }
-      )
-      
+      ) 
       this.router.navigate(['/login']);
-    },err =>{
+    }).catch( err => {
       this.translate.get(["MORESTEP",'SEND',"RESEND","CHECKMESSAGES","INFOREGISTER","CANCEL","CODEAUTHENTICATION"]).subscribe(
         value => {
           this.presentAlertPhone(value);
@@ -181,9 +187,11 @@ export class RegisterPage implements OnInit {
       )
       this.translate.get('BADCODE').subscribe(
         value => {
-        this.presentAlert('Error!',value);
+          this.presentAlert('Error!',value);
         }
       )
+    }).finally(() => {
+      
     })
   }
 
@@ -222,6 +230,7 @@ export class RegisterPage implements OnInit {
         }
       )
     }
+    this.showBar = false;
   }
 
   async loadModels() {

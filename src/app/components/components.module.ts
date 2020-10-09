@@ -5,18 +5,22 @@ import { IonicModule } from '@ionic/angular';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaymentCardsComponent } from './payment-cards/payment-cards.component';
+import { CardsLoanComponent } from './cards-loan/cards-loan.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     ValidationErrorsComponent,
-    PaymentCardsComponent
+    PaymentCardsComponent,
+    SpinnerComponent
   ],
   exports:[
     HeaderComponent,
     ValidationErrorsComponent,
-    PaymentCardsComponent
+    PaymentCardsComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,

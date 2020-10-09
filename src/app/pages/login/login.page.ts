@@ -49,22 +49,20 @@ export class LoginPage implements OnInit {
         this.presentLoading(value+"...");
       }
     )
-    this.userService.login(this.form_login.value).subscribe(response => {
-      this.loading.dismiss();
-     // this.presentAlert("Datos correctos!","Validacion exitosa.");
-      
-      //Guardar local
+    this.userService.login(this.form_login.value).toPromise().then(response => {
+     //Guardar local
       window.localStorage['user'] = JSON.stringify(response);
       //RedirectHome
       this.router.navigate(['/home']);
       
-    },error=>{
-      this.loading.dismiss();
+    }).catch( err => {
       this.translate.get('LOGINERROR').subscribe(
         value => {
           this.presentAlert("Error!",value);
         }
       )
+    }).finally(() => {
+      this.loading.dismiss();
     })
   }
 

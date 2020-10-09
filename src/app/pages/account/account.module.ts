@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AccountPageRoutingModule } from './account-routing.module';
 import { ComponentsModule } from '@components/components.module';
 import { AccountPage } from './account.page';
+import { CardsLoanModule } from '@components/cards-loan/cards-loan.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { AccountPage } from './account.page';
     FormsModule,
     IonicModule,
     AccountPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CardsLoanModule,
+    TranslateModule
   ],
   declarations: [AccountPage]
 })
