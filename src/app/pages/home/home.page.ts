@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { DashboardService } from '../../services/dashboard/dashboard.service';
+import { Storage } from '@ionic/storage';
 
 interface Componente {
   icon: string;
@@ -15,69 +18,32 @@ interface Componente {
 })
 export class HomePage implements OnInit {
 
-  public card = [
-    {
-      id: 1
-    },
-    {
-      id: 1
-    },
-    {
-      id: 1
-    },
-    {
-      id: 1
-    },
-    {
-      id: 1
-    }
-  ];
+  dashboard: Observable<any>;
+  public prestamos: any[] = [];
+  @Output() public dashboardData = new EventEmitter<any>();
 
   public urlAvatar = '';
 
+  sliderConfig = {
+    slidesPerView: 5,
+    spaceBetween: 2,
+    centeredSlides: true
+  };
+
   public iconexpand = 'chevron-down-outline';
   expanded: boolean = false;
-  public classlist = 'position-card1';
-  fecha = Date();
+  key: string = 'dashboard';
 
-  public data = [
-    {
-      icon: '',
-      name: '',
-      redirectTo: '',
-      img: '/assets/img/cards/Tarjeta01_1.svg',
-      accountNo: '000000012589',
-      amount: 1468.00,
-      pago:0,
-      datepago: this.fecha
-    },
-    {
-      icon: '',
-      name: '',
-      redirectTo: '',
-      img: '/assets/img/cards/Tarjeta02.svg',
-      accountNo: '0000000123456',
-      amount: 4500,
-      pago:50,
-      datepago: this.fecha
-    },
-    {
-      icon: '',
-      name: '',
-      redirectTo: '',
-      img: '/assets/img/cards/Tarjeta01_1.svg',
-      accountNo: '000000058965',
-      amount:3000,
-      pago:100,
-      datepago: this.fecha
-    }
-  ];
-  
-
-  constructor(private menuCtrl: MenuController) {}
+  constructor(private storage: Storage, private menuCtrl: MenuController, private dashboardService: DashboardService) {}
 
   ngOnInit(){
+    this.dashboardService.dashboard().subscribe(data =>{
+      this.storage.set(this.key, JSON.stringify(data));
+     // this.storage.set('dashboard', this.dashboard);
+    });
 
+    //this.dashboard = this.dashboardService.dashboard();
+    
     this.urlAvatar = '/assets/img/avatar/stan-lee.jpg';
   }
 

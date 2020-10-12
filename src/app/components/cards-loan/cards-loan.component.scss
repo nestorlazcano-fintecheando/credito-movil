@@ -2,254 +2,206 @@
   margin-top: -10px !important;
 }
 
-.cards-body{
-  width: 270px!important;
-  height: 120px!important;
-  background-repeat: no-repeat!important;
-  background-size: 270px!important;
+.cards{
+  width: 18.69rem;
+  height: 8.3rem;
+}
+.ion-slide{
+  margin-bottom: 27px!important;
 }
 
-.no-account{
-  float: right!important;
-  font-size: 11px!important;
-  margin-top: -5px!important;
+.ion-slides{
+  --bullet-background: #7D7D7D;
+  --bullet-background-active:#FFFF;
 }
-
-.balance, .payment-not-interest, .payday-limit{
-  float: left!important;
-  font-size: 8px!important;
+.date-limit{
+  font-size: .88rem!important;
+  text-transform: uppercase;
 }
-
-.balance-total, .not-interest{
-  font-size: 15px!important;
-  float: left!important;
+h2{
+  font-size: 1rem;
+  margin-top: -5px;
+  margin-bottom: -8px;
+  margin-right: 5px;
 }
-
-.balance{
-  margin-top: -12px!important;
+h3{
+  font-size: .6rem;
+  margin-bottom: .3rem;
 }
-
-.balance-total{
-  margin-top: -18px!important;
+p{
+  color:#FFFF !important;
+  font-size: 1.3rem!important;
+  margin-bottom: .5rem;
 }
-
-.payment-not-interest{
-  margin-top: -15px!important;
+@media (min-width:359px) and (max-width:360px){
+  .cards{
+    width: 17rem;
+    height: 7.53rem;
+  }
+ 
+  .date-limit{
+    font-size: .7rem!important;
+  }
+  h2{
+    font-size: .9rem;
+    margin-top: -5px;
+    margin-bottom: -8px;
+    margin-right: 5px;
+  }
+  h3{
+    font-size: .5rem;
+    margin-bottom: .3rem;
+  }
+  p{
+    color:#FFFF !important;
+    font-size: 1.12rem!important;
+    margin-bottom: .25rem;
+  }
 }
-
-.not-interest{
-  margin-top: -20px!important;
+@media(min-width:374px) and (max-width:375px){
+  .cards{
+    width: 18.69rem;
+    height: 7.75rem;
+  }
+  .date-limit{
+    font-size: .81rem!important;
+  }
+  h2{
+    font-size: .9rem;
+    margin-top: -5px;
+    margin-bottom: -8px;
+    margin-right: 5px;
+  }
+  h3{
+    font-size: .55rem;
+    margin-bottom: .25rem;
+  }
+  p{
+    color:#FFFF !important;
+    font-size: 1.3rem!important;
+    margin-bottom: .3rem;
+  }
 }
-.payday-limit{
-  margin-top: -18px!important;
+@media (min-width:100px) and (max-width:280px){
+  .cards{
+    width: 15rem;
+    height: 5.65rem;
+  }
+
+  .ion-slide{
+    margin-bottom: 25px!important;
+  }
+
+  .date-limit{
+    font-size: .5rem!important;
+  }
+
+  h2{
+    font-size: .73rem;
+    margin-top: -7px;
+    margin-bottom: -7px;
+    margin-right: 0px;
+  }
+  h3{
+    font-size: .42rem;
+    margin-bottom: 0rem;
+  }
+  p{
+    color:#FFFF !important;
+    font-size: .93rem!important;
+    margin-bottom: -0.2rem;
+  }
 }
-.date{
-  font-size: 11px!important;
+@media (min-width:500px) and (max-width:540px){
+  .cards{
+    width: 25.4rem;
+    height: 11.25rem;
+  }
+
+  .ion-slide{
+    margin-bottom: 28px!important;
+  }
+
+  .date-limit{
+    font-size: 1.2rem!important;
+  }
+
+  h2{
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    margin-right: 10px;
+  }
+  h3{
+    font-size: .8rem;
+    margin-bottom: .73rem;
+  }
+  p{
+    color:#FFFF !important;
+    font-size: 1.6rem!important;
+    margin-bottom: .75rem;
+  }
 }
-
-
-@media(min-width: 541px) and(max-width: 768px){
-  .cards-body{
-    width: 500px!important;
-    height: 200px!important;
-    background-size: 500px!important;
+@media (min-width:767px) and (max-width:784px){
+  .cards{
+    width: 35rem;
+    height: 15.55rem;
   }
 
-  .no-account{
-    float: right!important;
-    font-size: 15px!important;
-    margin-top: -5px!important;
+  .ion-slide{
+    margin-bottom: 30px!important;
   }
 
-  .balance, .payment-not-interest, .payday-limit{
-    font-size: 12px!important;
+  .date-limit{
+    font-size: 1.5rem!important;
   }
 
-  .balance-total, .not-interest{
-    font-size: 20px!important;
+  h2{
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: -8px;
+    margin-right: 1rem;
   }
-
-  .balance{
-    margin-top: 10px!important;
-    margin-left: 20px!important;
+  h3{
+    font-size: 1rem;
+    margin-bottom: .95rem;
+    margin-left: 1rem;
   }
-
-  .balance-total{
-    margin-top: 12px!important;
-    margin-left: -78px!important;
+  p{
+    color:#FFFF !important;
+    font-size: 2.5rem!important;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
   }
-
-  .payment-not-interest{
-    margin-top: 30px!important;
-    margin-left: -87px!important;
-  }
-
-  .not-interest{
-    margin-top: 30px!important;
-    margin-left: -205px!important;
-  }
-
-  .payday-limit{
-    margin-top: 45px!important;
-    margin-left: -205px!important;
-  }
-
-  .date{
-    font-size: 15px!important;
-  }
-
 }
-
-@media(min-width: 769px) and(max-width: 1024px){
-
-  .cards-body{
-    width: 630px!important;
-    height: 250px!important;
-    background-size: 630px!important;
+@media (min-width:1023px) and (max-width:1024px){
+  .cards{
+    width: 50rem;
+    height: 22.25rem;
   }
 
-  .balance, .payment-not-interest, .payday-limit{
-    font-size: 15px!important;
-  }
-  
-  .balance-total, .not-interest{
-    font-size: 25px!important;
+  .ion-slide{
+    margin-bottom: 30px!important;
   }
 
-  .no-account{
-    float: right!important;
-    font-size: 20px!important;
-    margin-top: -5px!important;
+  .date-limit{
+    font-size: 1.9rem!important;
   }
 
-  .balance{
-    margin-top: 20px!important;
-    margin-left: 25px!important;
+  h2{
+    font-size: 2.3rem!important;
+    margin-top: 8px;
+    margin-right: 2rem;
   }
-
-  .balance-total{
-    margin-top: 25px!important;
-    margin-left: -97px!important;
+  h3{
+    font-size: 1.3rem;
+    margin-bottom: 1.8rem;
+    margin-left: 2rem;
   }
-
-  .payment-not-interest{
-    margin-top: 55px!important;
-    margin-left: -108px!important;
+  p{
+    color:#FFFF !important;
+    font-size: 3.5rem!important;
+    margin-bottom: 2.5rem;
+    margin-left: 2rem;
   }
-
-  .not-interest{
-    margin-top: 60px!important;
-    margin-left: -255px!important;
-  }
-
-  .payday-limit{
-    margin-top: 85px!important;
-    margin-left: -254px!important;
-  }
-
-  .date{
-    font-size: 19px!important;
-  }
-
 }
-
-@media(min-width: 415px) and (max-width: 540px){
-  .cards-body{
-    width: 360px!important;
-    height: 150px!important;
-    background-size: 360px!important;
-  }
-
-  .balance, .payment-not-interest, .payday-limit{
-    font-size: 11px!important;
-  }
-  
-  .balance-total, .not-interest{
-    font-size: 16px!important;
-  }
-  
-  .no-account{
-    float: right!important;
-    font-size: 15px!important;
-    margin-top: -5px!important;
-  }
-
-  .balance{
-    margin-top: -10px!important;
-    margin-left: 10px!important;
-  }
-
-  .balance-total{
-    margin-top: -12px!important;
-    margin-left: 10px!important;
-  }
-
-  .payment-not-interest{
-    margin-top: -8px!important;
-    margin-left: 11px!important;
-  }
-  .not-interest{
-    margin-top: -10px!important;
-    margin-left: 10px!important;
-  }
-
-  .payday-limit{
-    margin-top: -10px!important;
-    margin-left: 11px!important;
-  }
-
-  .date{
-    font-size: 19px!important;
-  }
-
-}
-
-@media(min-width: 279px) and(max-width: 280px){
-
-  .cards-body{
-    width: 200px!important;
-    height: 89px!important;
-    background-size: 200px!important;
-  }
-
-  .balance, .payment-not-interest, .payday-limit{
-    font-size: 7px!important;
-  }
-  
-  .balance-total, .not-interest{
-    font-size: 12px!important;
-  }
-  
-  .no-account{
-    float: right!important;
-    font-size: 9px!important;
-    margin-top: -8px!important;
-  }
-
-  .balance{
-    margin-top: -17px!important;
-  }
-
-  .balance-total{
-    margin-top: -28px!important;
-  }
-
-  .payment-not-interest{
-    margin-top: -30px!important;
-  }
-
-  .not-interest{
-    margin-top: -40px!important;
-  }
-
-  .payday-limit{
-    margin-top: -45px!important;
-    margin-right: -30px!important;
-  }
-
-  .date{
-    font-size: 10px!important;
-  }
-
-}
-

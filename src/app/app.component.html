@@ -1,11 +1,14 @@
 <ion-app>
   <ion-menu side="start" menuId="first" contentId="main">
-    <ion-header class="ion-no-border ion-padding">
-      <ion-toolbar  id="color-background">
+    <ion-header id="imagen" class="ion-no-border ion-padding">
+      <ion-toolbar class="ion-padding"  id="color-background">
         <ion-avatar>
           <img src="/assets/img/avatar/stan-lee.jpg">
         </ion-avatar>
       </ion-toolbar>
+    
+        <ion-label  color="textcard" class="ion-padding"><strong>ANDRES ROBLES LOPEZ</strong></ion-label>
+
     </ion-header>
     <ion-content>
       <ion-list lines="none" class="ion-no-padding">
@@ -27,9 +30,12 @@
         </ion-item>
       </ion-list>
     </ion-content>
-    <ion-footer class="ion-no-border">
-      <ion-item>
-        Cerrar sesion
+    <ion-footer class="ion-no-border ion-padding">
+      <ion-item lines="none">
+        <ion-icon name="enter-outline"></ion-icon>
+        <ion-label>
+          Cerrar sesion
+        </ion-label>
       </ion-item>
     </ion-footer>
   </ion-menu>

@@ -1,61 +1,53 @@
-<ion-header class="ion-no-border" [translucent]="true">
-  <ion-toolbar class="ion-no-padding">
-    <ion-row>
-      <ion-col class="ion-color-avatar" size="6">
-        <ion-avatar button (click)="menuSalir()">
-          <img src="{{ urlAvatar }}">
-        </ion-avatar>
-      </ion-col>
-      <ion-col class="color-section-empty">
-      </ion-col>
-      </ion-row>
-  </ion-toolbar>
+<ion-header class="ion-padding" class="ion-no-border">
+       <ion-toolbar color="content">
+          <ion-avatar class="ion-margin ion-padding" slot="" class="ion-no-padding" button (click)="menuSalir()">
+            <img src="{{ urlAvatar }}">
+          </ion-avatar>
+       </ion-toolbar>      
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <div class="position-father position-relative">
-    <ion-row>
-      <ion-col class="color-section-one" size="6">
-      </ion-col>
-      <ion-col class="color-section-two">
-      </ion-col>
-      </ion-row>
+<ion-content color="content"  [scrollX]="false" [fullscreen]="true">
+  <div class="cards-slides">
+    <app-cards-loan id="0"></app-cards-loan>
   </div>
-  <div class="position-card position-relative">
-    <app-cards-loan [data]="data"></app-cards-loan>
-  </div>
-  <div class="position-button position-relative">
-    <ion-button (click)="onExpanded()" expand="block" fill="clear" shape="round">
-      <ion-icon name="{{iconexpand}}"></ion-icon>
-    </ion-button>
-    <div class="position-buttons" *ngIf="expanded">
-      <ion-card class="card-options-buttons">
-        <ion-icon class="icon-qr-color" name="qr-code-outline"></ion-icon>
-        <ion-card-content class="text-content">
-          Mis cuentas
-        </ion-card-content>
-      </ion-card>
-      <ion-card class="card-options-buttons">
-        <ion-icon class="icon-qr-color" name="qr-code-outline"></ion-icon>
-        <ion-card-content class="text-content">
-          Solicitar un Préstamo
-        </ion-card-content>
-      </ion-card>
-      <ion-card class="card-options-buttons">
-        <ion-icon class="icon-qr-color" name="qr-code-outline"></ion-icon>
-        <ion-card-content class="text-content">
-          Código de Barras y QR
-        </ion-card-content>
-      </ion-card>
+  <div class="body">
+    <div class="body-button">
+      <app-cards-buttons></app-cards-buttons>
     </div>
-    <div class="position-list">
-      <br>
-      <ion-card *ngFor="let item of card" class="position-list-card" button="true"> 
-        <ion-card-content>
-          This is content, without any paragraph or header tags,
-          within an ion-card-content element.
-        </ion-card-content>
-      </ion-card>
+    <div class="body-list">
+      <div class="box-list box-padding">
+        <ion-list class="ion-margin" mode="ios" *ngFor="let item of [1,1]"> 
+          <ion-item class="border-item-list" color="boxitem" lines="none">
+              <ion-icon color="primary" class="icon ion-text-right" slot="start" name="globe-outline"></ion-icon>
+            <ion-label position="stacked">
+              <h2 class="text-reference"><strong>Referencia de Pago aplicado</strong></h2>
+              <h3 class="text-account">000-000-000-0000</h3>
+              <p class="tex-garantia">PAGO DE GARANTIA</p>
+            </ion-label>
+            <ion-label>
+              <h2 class="ion-text-right text-saldo"><strong>$26000.2000</strong></h2>
+              <h3 class="ion-text-right">30/09/2020</h3>
+            </ion-label>
+          </ion-item>
+          </ion-list>
+      </div>
+        <div class="card-list">
+          <ion-list mode="ios" class="padding-list" *ngFor="let item of [1]"> 
+            <ion-item class="ion-no-padding ion-item" lines="none">
+
+                <ion-icon color="primary" class="icon ion-text-right" slot="start" name="globe-outline"></ion-icon>
+         
+              <ion-label class="content-2">
+                <h2 class="text-title"><strong>Referencia de Pago aplicado</strong></h2>
+                <h3 class="text-title-size">000-000-000-0000</h3>
+                <p class="text-title-size">PAGO DE GARANTIA</p>
+              </ion-label>
+              <ion-label class="content-3">
+                <h2 class="ion-text-money"><strong>$26000.2000</strong></h2>
+                <h3 class="ion-text-date">30/09/2020</h3>
+              </ion-label>
+            </ion-item>
+            </ion-list>
+        </div>
     </div>
   </div>
 
