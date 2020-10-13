@@ -1,0 +1,46 @@
+ion-content.background-login{
+    --ion-background-color: #043C80;
+}
+
+ion-card.background-login{
+    --background: rgba(255,0,0,0);
+}
+
+ion-list.background-login{
+    --ion-item-background: rgba(255,0,0,0);
+}
+
+#img-selfie{
+    width: 42px;
+    height: 71px;
+    margin-left: 30%;
+    margin-top: 16%;
+    --border-radius: 0px;
+}
+
+.positionAvata{
+    height: 100px;
+    width: 100px; 
+    background-color: #043C80; 
+    margin-top: 0px;
+    position:absolute;
+    top: calc( ( 100% - 150px) / 3);
+    left: calc( (100% - 100px) / 2 );
+}
+
+.color-icon{
+    color:#86A520
+}
+
+.margin-card-login{
+    margin-right: 17%;
+    margin-left: 17%;
+}
+
+#image {
+    background-image:url("../../../assets/img/bg-header-login.jpg");
+    height: 32%;
+    width:100%;
+    background-size: 100% 100%;
+    margin-bottom: 10%;
+  }

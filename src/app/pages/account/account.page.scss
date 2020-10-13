@@ -1,0 +1,34 @@
+.item-nav{
+    --background: #043C80;
+    --color:white;
+    margin-left: 5%;
+    margin-right: 5%;
+    --min-height:50px;
+}
+
+@media(max-width: 576px){
+    .item-nav{
+        max-height: 70px
+    }
+}
+
+.segment-nav{
+    background-color:#033B7F ;
+    color: white;
+
+}
+
+ion-slide {
+    //height: calc(110vh - 135px);
+    height: 250px;
+}
+
+ion-segment-button {
+    --color-checked: white !important;
+    --indicator-height: 4px !important;
+}
+
+.bg-card-loan{
+    background-color:#F2F2F2;
+    margin-bottom: 7%;
+}
