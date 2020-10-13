@@ -35,11 +35,9 @@ export class CardsLoanComponent implements OnInit, AfterViewInit {
       });
    }
 
-  public onRemove(): void {
-    this.storage.remove(this.key);
-  }
 
   onAccounts(id: number){
+  
     this.router.navigate(['/account/', id]);
   }
 

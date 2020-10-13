@@ -11,32 +11,26 @@
 
     </ion-header>
     <ion-content>
-      <ion-list lines="none" class="ion-no-padding">
-        <ion-item no-lines>
-          <ion-icon class="ion-padding" name="home-outline"></ion-icon>
-          Inicio
-        </ion-item>
-        <ion-item>
-          <ion-icon class="ion-padding" class="ion-padding" name="card-outline"></ion-icon>
-          Mis Cuentas
-        </ion-item>
-        <ion-item>
-          <ion-icon class="ion-padding" name="thumbs-up-outline"></ion-icon>
-          Solicitar un Prestamo
-        </ion-item>
-        <ion-item>
-          <ion-icon class="ion-padding" name="qr-code-outline"></ion-icon>
-          Codigo de barras y QR
-        </ion-item>
-      </ion-list>
+      <div class="spacing">
+        <ion-list *ngFor="let pages of navigate">
+          <ion-menu-toggle lines="none"  class="ion-toogle ion-no-padding" auto-hide="true">
+            <ion-item lines="none" [routerLink]="pages.url" routerDirection="forward">
+                <ion-icon [name]="pages.icon" slot="start"></ion-icon>
+                   {{pages.title}} 
+            </ion-item>
+          </ion-menu-toggle>
+          </ion-list>
+      </div>
     </ion-content>
     <ion-footer class="ion-no-border ion-padding">
-      <ion-item lines="none">
-        <ion-icon name="enter-outline"></ion-icon>
-        <ion-label>
-          Cerrar sesion
-        </ion-label>
-      </ion-item>
+      <ion-menu-toggle>
+        <ion-item routerLink="login" lines="none">
+          <ion-icon name="enter-outline"></ion-icon>
+          <ion-label>
+            Cerrar sesion
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-footer>
   </ion-menu>
 

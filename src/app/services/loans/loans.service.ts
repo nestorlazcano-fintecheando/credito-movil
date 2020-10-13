@@ -31,4 +31,10 @@ export class LoansService {
   public getDetails(id): Observable<any> {
     return this.http.get(this.url+"prestamo/"+id+"/detalle", this.httpOptions);
   }
+
+  public dashboard(): Observable<any>{
+    console.log(this.httpOptions);
+    return this.http.get(this.url+ 'dashboard/',this.httpOptions);
+
+   }
 }

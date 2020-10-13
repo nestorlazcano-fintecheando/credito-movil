@@ -2,26 +2,33 @@
 #color-background{
    // --background: #043C80!important;
     --background: transparent;
-}
+}/*
 .contenedor{
     margin-bottom: var(--ion-margin,20px)!important;
     border-bottom-color: #043C80!important;
     background-color: red!important;
 }
+.ion-toogle{
+    margin-bottom: -50px!important;
+    background-color: red!important;
+}
+*/
 
 ion-content, ion-list, ion-item, ion-footer,ion-menu,ion-icon{
     --background: #043C80!important;
     color:#FFFF;
-    border-bottom: none!important;
-       box-shadow: none!important;
+     //border-bottom: 100px!important;
+    // box-shadow: 100px!important;
 }
-
+.spacing{
+    margin-top: 80px!important;
+}
 ion-list{
- margin-top: 15%!important;
- border-bottom-color: transparent!important;
+ margin-top: -18px!important;
+ //border-bottom-color: transparent!important;
 }
 ion-item{
-    border-bottom-color: transparent!important;
+   // border-bottom-color: transparent!important;
 }
 ion-label{
     margin-left: 1rem;

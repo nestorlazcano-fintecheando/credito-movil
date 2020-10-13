@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { DashboardService } from '../../services/dashboard/dashboard.service';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
+import { LoansService } from '@services/loans/loans.service';
 
 interface Componente {
   icon: string;
@@ -21,7 +23,8 @@ export class HomePage implements OnInit {
   dashboard: Observable<any>;
   public prestamos: any[] = [];
   @Output() public dashboardData = new EventEmitter<any>();
-
+  arrayMovements: any;
+  eventRefesh: any;
   public urlAvatar = '';
 
   sliderConfig = {
@@ -29,19 +32,57 @@ export class HomePage implements OnInit {
     spaceBetween: 2,
     centeredSlides: true
   };
+ fecha = Date();
+public data = [
+    {
+      icon: '',
+      name: '',
+      redirectTo: '',
+      img: '/assets/img/cards/Tarjeta01_1.svg',
+      accountNo: '000000012589',
+      amount: 1468.00,
+      pago:0,
+      datepago: this.fecha
+    },
+    {
+      icon: '',
+      name: '',
+      redirectTo: '',
+      img: '/assets/img/cards/Tarjeta02.svg',
+      accountNo: '0000000123456',
+      amount: 4500,
+      pago:50,
+      datepago: this.fecha
+    },
+    {
+      icon: '',
+      name: '',
+      redirectTo: '',
+      img: '/assets/img/cards/Tarjeta01_1.svg',
+      accountNo: '000000058965',
+      amount:3000,
+      pago:100,
+      datepago: this.fecha
+    }
+  ];
 
   public iconexpand = 'chevron-down-outline';
   expanded: boolean = false;
   key: string = 'dashboard';
 
-  constructor(private storage: Storage, private menuCtrl: MenuController, private dashboardService: DashboardService) {}
+  constructor(private storage: Storage, 
+    private menuCtrl: MenuController,
+    private serviceLoand: LoansService,
+    private translate: TranslateService,
+    private alertController: AlertController
+    ) {}
 
   ngOnInit(){
-    this.dashboardService.dashboard().subscribe(data =>{
+    this.serviceLoand.dashboard().subscribe(data =>{
       this.storage.set(this.key, JSON.stringify(data));
      // this.storage.set('dashboard', this.dashboard);
     });
-
+    this.getMovements(688);
     //this.dashboard = this.dashboardService.dashboard();
     
     this.urlAvatar = '/assets/img/avatar/stan-lee.jpg';
@@ -60,6 +101,32 @@ export class HomePage implements OnInit {
 
   menuSalir(){
     this.menuCtrl.open('first');
+  }
+
+  getMovements(id){
+    this.arrayMovements=null;
+    this.serviceLoand.getMoviments(id).toPromise().then( response =>{
+      console.log("L: ",response.movs.length)
+      this.arrayMovements = response.movs;
+    }).catch( err => {
+      this.translate.get("TRYAGAIN").subscribe(
+        value => {
+          this.presentAlert('Error!',value);
+        }
+      )
+    }).finally(() => {   
+      this.eventRefesh.target.complete();
+    })
+  }
+
+  async presentAlert(header,msj) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: msj,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
